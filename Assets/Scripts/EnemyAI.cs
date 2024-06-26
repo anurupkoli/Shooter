@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -35,6 +36,10 @@ public class EnemyAI : MonoBehaviour
         if(distance <= sensingRadius){
             isProvoked = true;
         }
+    }
+
+    public void SetIsProvoked(bool isProvoked){
+        this.isProvoked = isProvoked;
     }
 
     void MoveAgent(){
