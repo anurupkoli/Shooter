@@ -204,6 +204,7 @@ Transform:
   - {fileID: 6488837858942143545}
   - {fileID: 7420056303013287314}
   - {fileID: 1348898218784723094}
+  - {fileID: 6579884228621681818}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5031335239643033404
@@ -270,6 +271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
   range: 100
+  damage: 50
+  muzzleFlashVFX: {fileID: 0}
 --- !u!1 &3390629268474056584
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,3 +637,81 @@ Transform:
   - {fileID: 5519372949349351377}
   m_Father: {fileID: 6159649463790844801}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &4313456458269929398
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6159649463790844801}
+    m_Modifications:
+    - target: {fileID: 6956944404552346412, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956944404552346412, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956944404552346412, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956944404552346412, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.2319
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956944404552346412, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956944404552346412, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956944404552346412, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956944404552346412, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956944404552346412, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956944404552346412, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956944404552346412, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956944404552346412, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956944404552346412, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273675609503337606, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+      propertyPath: m_Name
+      value: MuzzleFlash01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020536396997356432, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+--- !u!4 &6579884228621681818 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6956944404552346412, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+  m_PrefabInstance: {fileID: 4313456458269929398}
+  m_PrefabAsset: {fileID: 0}

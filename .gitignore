@@ -9,6 +9,7 @@
 [Ll]ogs/
 [Mm]emoryCaptures/
 UserSettings/
+AssetPacks/
 
 # Ignore crash reports
 *.stacktrace

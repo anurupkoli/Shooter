@@ -11,14 +11,12 @@ public class EnemyHealth : MonoBehaviour
     void Start(){
         enemyAI = GetComponent<EnemyAI>();
     }
-    void Update(){
-        if(health <= 0){
-            DestroyEnemy();
-        }
-    }
     public void ReduceHealth(float damage){
         health -= damage;
         enemyAI.SetIsProvoked(true);
+        if(health <= 0){
+            DestroyEnemy();
+        }
     }
 
     void DestroyEnemy(){

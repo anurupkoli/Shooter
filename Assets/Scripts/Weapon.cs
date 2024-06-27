@@ -8,15 +8,16 @@ public class Weapon : MonoBehaviour
     [SerializeField] Camera mainCamera;
     [SerializeField] float range = 100f;
     [SerializeField] float damage = 50f;
+    [SerializeField] ParticleSystem muzzleFlashVFX;
+    [SerializeField] GameObject hitSparks;
     PlayerInput playerInput;
     InputAction fire;
 
-    EnemyHealth enemyHealth;
     void Start()
     {
         playerInput = FindAnyObjectByType<PlayerInput>();
         fire = playerInput.actions["fire"];
-        enemyHealth = FindAnyObjectByType<EnemyHealth>();
+
     }
     void Update()
     {
@@ -28,11 +29,24 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
+        PlayMuzzleFlash();
+        HandleRaycast();
+    }
+
+    void PlayMuzzleFlash()
+    {
+        muzzleFlashVFX.Play();
+    }
+
+    void HandleRaycast()
+    {
         Ray ray = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, range))
         {
-            if (hit.transform.gameObject == enemyHealth.gameObject)
+            PlayHitSparks(hit);
+            EnemyHealth enemyHealth = hit.transform.GetComponent<EnemyHealth>();
+            if (enemyHealth != null)
             {
                 enemyHealth.ReduceHealth(damage);
             }
@@ -45,5 +59,10 @@ public class Weapon : MonoBehaviour
         {
             return;
         }
+    }
+
+    void PlayHitSparks(RaycastHit hit){
+        GameObject hitSpark = Instantiate(hitSparks, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(hitSpark, 0.1f);
     }
 }
