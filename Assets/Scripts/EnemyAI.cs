@@ -23,43 +23,60 @@ public class EnemyAI : MonoBehaviour
     {
         CalculateDistance();
         CheckIsProvoked();
-        if(isProvoked){
+        if (isProvoked)
+        {
             MoveAgent();
         }
     }
 
-    void CalculateDistance(){
+    void CalculateDistance()
+    {
         distance = Vector3.Distance(transform.position, target.position);
     }
 
-    void CheckIsProvoked(){
-        if(distance <= sensingRadius){
+    void CheckIsProvoked()
+    {
+        if (distance <= sensingRadius)
+        {
             isProvoked = true;
         }
     }
 
-    public void SetIsProvoked(bool isProvoked){
+    public void SetIsProvoked(bool isProvoked)
+    {
         this.isProvoked = isProvoked;
     }
 
-    void MoveAgent(){
-        if(distance > navMeshAgent.stoppingDistance){
+    void MoveAgent()
+    {
+        if (distance > navMeshAgent.stoppingDistance)
+        {
             FollowTarget();
         }
-        if(distance <= navMeshAgent.stoppingDistance){
+        if (distance <= navMeshAgent.stoppingDistance)
+        {
+            GetComponent<Animator>().SetBool("Attack", true);
             AttackTarget();
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("Attack", false);
         }
     }
 
-    void FollowTarget(){
+    void FollowTarget()
+    {
+        GetComponent<Animator>().SetTrigger("Move");
         navMeshAgent.SetDestination(target.position);
     }
 
-    void AttackTarget(){
-        Debug.Log("Attacking");
+    void AttackTarget()
+    {
+        
     }
 
-    void OnDrawGizmosSelected(){
+    void OnDrawGizmosSelected()
+    {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, sensingRadius);
     }

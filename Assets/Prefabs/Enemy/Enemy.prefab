@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3817984146861816255}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071065, z: -0, w: 0.7071072}
-  m_LocalPosition: {x: -0.00000044703478, y: 0.5, z: 0.49999958}
+  m_LocalPosition: {x: -0.0000004470348, y: 0.5, z: 0.49999958}
   m_LocalScale: {x: 1, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 58bb4fe22981e3b44b060a42308ad819, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,6 +119,9 @@ GameObject:
   - component: {fileID: 1772130644720553975}
   - component: {fileID: 4505995125183127928}
   - component: {fileID: 6216281886828399880}
+  - component: {fileID: 8313532811365134630}
+  - component: {fileID: 1379450079048067900}
+  - component: {fileID: 8751355359138755232}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -249,5 +252,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c21164284f7be74c9b946215c0f6a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensingRadius: 5
+  sensingRadius: 10
   target: {fileID: 0}
+--- !u!114 &8313532811365134630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7938378933965967429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ab7ee06082d3f940a0ebd6b6c025fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+--- !u!95 &1379450079048067900
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7938378933965967429}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: add6f87d25998cc44b789fa8eee952ab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8751355359138755232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7938378933965967429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4defc37299dc5304eb9bb0dce87955d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

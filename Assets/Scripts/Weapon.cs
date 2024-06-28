@@ -12,11 +12,13 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject hitSparks;
     PlayerInput playerInput;
     InputAction fire;
+    GameObject destroyables;
 
     void Start()
     {
         playerInput = FindAnyObjectByType<PlayerInput>();
         fire = playerInput.actions["fire"];
+        destroyables = GameObject.FindGameObjectWithTag("Destroyables");
 
     }
     void Update()
@@ -63,6 +65,7 @@ public class Weapon : MonoBehaviour
 
     void PlayHitSparks(RaycastHit hit){
         GameObject hitSpark = Instantiate(hitSparks, hit.point, Quaternion.LookRotation(hit.normal));
+        hitSpark.transform.parent = destroyables.transform;
         Destroy(hitSpark, 0.1f);
     }
 }
