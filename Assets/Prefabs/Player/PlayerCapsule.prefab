@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 4955494992711354462}
   - component: {fileID: 8677076781408146478}
   - component: {fileID: 2177841431633989040}
+  - component: {fileID: 5444205677417420138}
   m_Layer: 8
   m_Name: PlayerCapsule
   m_TagString: Player
@@ -477,6 +478,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04653a627a86ab74188d1d1d03054f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+--- !u!114 &5444205677417420138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8677076781408146466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce45576388081d540b0d242e07283697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2626377744658590031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -555,6 +569,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carbine
       objectReference: {fileID: 0}
+    - target: {fileID: 3411828764813097293, guid: 7f37c3818124ddf41b3c800d4d47a5c8, type: 3}
+      propertyPath: hitSparks
+      value: 
+      objectReference: {fileID: 5934684838375932430, guid: 40f68b40c1de7e547b64898685300b96, type: 3}
     - target: {fileID: 3411828764813097293, guid: 7f37c3818124ddf41b3c800d4d47a5c8, type: 3}
       propertyPath: mainCamera
       value: 
