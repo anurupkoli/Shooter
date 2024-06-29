@@ -1,23 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Weapon : MonoBehaviour
 {
     [SerializeField] Camera mainCamera;
+    [SerializeField] GameObject cinemachineCamera;
     [SerializeField] float range = 100f;
     [SerializeField] float damage = 50f;
+    [SerializeField] float zoomInFov = 20f;
+    [SerializeField] float zoomOutFov = 40f;
     [SerializeField] ParticleSystem muzzleFlashVFX;
     [SerializeField] GameObject hitSparks;
     PlayerInput playerInput;
     InputAction fire;
+    InputAction zoom;
     GameObject destroyables;
+    bool isZoomedIn = false;
 
     void Start()
     {
         playerInput = FindAnyObjectByType<PlayerInput>();
         fire = playerInput.actions["fire"];
+        zoom = playerInput.actions["zoom"];
         destroyables = GameObject.FindGameObjectWithTag("Destroyables");
 
     }
@@ -27,6 +34,8 @@ public class Weapon : MonoBehaviour
         {
             Shoot();
         }
+
+        ZoomInAndOut();
     }
 
     void Shoot()
@@ -63,9 +72,27 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    void PlayHitSparks(RaycastHit hit){
+    void PlayHitSparks(RaycastHit hit)
+    {
         GameObject hitSpark = Instantiate(hitSparks, hit.point, Quaternion.LookRotation(hit.normal));
         hitSpark.transform.parent = destroyables.transform;
         Destroy(hitSpark, 0.1f);
+    }
+
+    void ZoomInAndOut()
+    {
+        if (zoom.triggered)
+        {
+            if (!isZoomedIn)
+            {
+                isZoomedIn = true;
+                cinemachineCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = zoomInFov;
+            }
+            else
+            {
+                isZoomedIn = false;
+                cinemachineCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = zoomOutFov;
+            }
+        }
     }
 }

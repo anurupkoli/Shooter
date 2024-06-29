@@ -135,10 +135,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4903449354956301337, guid: e550669c3656a9348b15195aaf2dcba5, type: 3}
+      propertyPath: cinemachineCamera
+      value: 
+      objectReference: {fileID: 449585378}
     - target: {fileID: 5444205677417420138, guid: e550669c3656a9348b15195aaf2dcba5, type: 3}
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 1294030050}
+    - target: {fileID: 5531197942988979410, guid: e550669c3656a9348b15195aaf2dcba5, type: 3}
+      propertyPath: field of view
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5531197942988979410, guid: e550669c3656a9348b15195aaf2dcba5, type: 3}
+      propertyPath: far clip plane
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5531197942988979410, guid: e550669c3656a9348b15195aaf2dcba5, type: 3}
+      propertyPath: near clip plane
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767538127110339636, guid: e550669c3656a9348b15195aaf2dcba5, type: 3}
+      propertyPath: m_Priority
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8295907524346842776, guid: e550669c3656a9348b15195aaf2dcba5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.25
@@ -354,6 +374,11 @@ Transform:
   - {fileID: 617656503}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &449585378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6767538127110340042, guid: e550669c3656a9348b15195aaf2dcba5, type: 3}
+  m_PrefabInstance: {fileID: 132593313}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &617656502
 GameObject:
   m_ObjectHideFlags: 0
