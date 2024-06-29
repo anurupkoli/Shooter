@@ -21,11 +21,13 @@ public class Weapon : MonoBehaviour
     InputAction fire;
     InputAction zoom;
     GameObject destroyables;
+    Ammo ammo;
     bool isZoomedIn = false;
     float zoomOutMouseSensitivity;
 
     void Start()
     {
+        ammo = GetComponent<Ammo>();
         playerInput = FindAnyObjectByType<PlayerInput>();
         fire = playerInput.actions["fire"];
         zoom = playerInput.actions["zoom"];
@@ -45,6 +47,11 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
+        if (ammo.AmmoAmount <= 0)
+        {
+            return;
+        }
+        ammo.ReduceAmmo();
         PlayMuzzleFlash();
         HandleRaycast();
     }
