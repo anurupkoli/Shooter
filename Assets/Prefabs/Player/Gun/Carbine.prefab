@@ -270,9 +270,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
+  cinemachineCamera: {fileID: 0}
   range: 100
   damage: 50
+  zoomInFov: 20
+  zoomOutFov: 40
+  zoomInMouseSensitivity: 0.5
   muzzleFlashVFX: {fileID: 0}
+  hitSparks: {fileID: 0}
 --- !u!1 &3390629268474056584
 GameObject:
   m_ObjectHideFlags: 0

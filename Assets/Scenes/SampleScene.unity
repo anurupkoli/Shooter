@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: cinemachineCamera
       value: 
       objectReference: {fileID: 449585378}
+    - target: {fileID: 4903449354956301337, guid: e550669c3656a9348b15195aaf2dcba5, type: 3}
+      propertyPath: zoomInMouseSensitivity
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5444205677417420138, guid: e550669c3656a9348b15195aaf2dcba5, type: 3}
       propertyPath: gameOverCanvas
       value: 
@@ -202,6 +206,10 @@ PrefabInstance:
     - target: {fileID: 8677076781408146466, guid: e550669c3656a9348b15195aaf2dcba5, type: 3}
       propertyPath: m_Name
       value: PlayerCapsule
+      objectReference: {fileID: 0}
+    - target: {fileID: 8677076781408146469, guid: e550669c3656a9348b15195aaf2dcba5, type: 3}
+      propertyPath: RotationSpeed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

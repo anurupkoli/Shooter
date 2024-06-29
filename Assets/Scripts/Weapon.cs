@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,13 +13,16 @@ public class Weapon : MonoBehaviour
     [SerializeField] float damage = 50f;
     [SerializeField] float zoomInFov = 20f;
     [SerializeField] float zoomOutFov = 40f;
+    [SerializeField] float zoomInMouseSensitivity = 0.5f;
     [SerializeField] ParticleSystem muzzleFlashVFX;
     [SerializeField] GameObject hitSparks;
     PlayerInput playerInput;
+    FirstPersonController fpsController;
     InputAction fire;
     InputAction zoom;
     GameObject destroyables;
     bool isZoomedIn = false;
+    float zoomOutMouseSensitivity;
 
     void Start()
     {
@@ -26,7 +30,8 @@ public class Weapon : MonoBehaviour
         fire = playerInput.actions["fire"];
         zoom = playerInput.actions["zoom"];
         destroyables = GameObject.FindGameObjectWithTag("Destroyables");
-
+        fpsController = FindObjectOfType<FirstPersonController>();
+        zoomOutMouseSensitivity = fpsController.RotationSpeed;
     }
     void Update()
     {
@@ -87,11 +92,13 @@ public class Weapon : MonoBehaviour
             {
                 isZoomedIn = true;
                 cinemachineCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = zoomInFov;
+                fpsController.RotationSpeed = zoomInMouseSensitivity;
             }
             else
             {
                 isZoomedIn = false;
                 cinemachineCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = zoomOutFov;
+                fpsController.RotationSpeed = zoomOutMouseSensitivity;
             }
         }
     }
