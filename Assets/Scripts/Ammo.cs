@@ -3,11 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ammo : MonoBehaviour
-{
-    [SerializeField] int ammoAmount = 10;
-    public int AmmoAmount{get{return ammoAmount;}}
+{   
+    [SerializeField] AmmoType ammoType;
+    PlayerAmmo playerAmmo;
+
+    void Start(){
+        playerAmmo = GetComponentInParent<PlayerAmmo>();
+    }
+
+    public int AmmoAmount(){
+        return playerAmmo.GetAmmoAmount(ammoType);
+    }
 
     public void ReduceAmmo(){
-        ammoAmount--;
+        playerAmmo.ReduceAmmo(ammoType);
+    }
+
+    public void IncreaseAmmo(){
+        playerAmmo.IncreaseAmmo(ammoType, 30);
     }
 }

@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff84cc739324fa146a57a9f019122143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmount: 10
+  ammoType: 2
 --- !u!114 &-2819201049812403844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   cinemachineCamera: {fileID: 0}
   range: 25
-  damage: 40
+  damage: 50
   zoomInFov: 20
   zoomOutFov: 40
   zoomInMouseSensitivity: 0.5

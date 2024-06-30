@@ -54,7 +54,7 @@ public class Weapon : MonoBehaviour
     IEnumerator Shoot()
     {
         canShoot = false;
-        if (ammo.AmmoAmount > 0)
+        if (ammo.AmmoAmount() > 0)
         {
             PlayMuzzleFlash();
             HandleRaycast();
