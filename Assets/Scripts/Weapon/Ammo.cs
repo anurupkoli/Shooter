@@ -20,6 +20,6 @@ public class Ammo : MonoBehaviour
     }
 
     public void IncreaseAmmo(){
-        playerAmmo.IncreaseAmmo(ammoType, 30);
+        // playerAmmo.IncreaseAmmo(ammoType, 30);
     }
 }
