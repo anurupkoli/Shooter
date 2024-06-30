@@ -273,12 +273,13 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   cinemachineCamera: {fileID: 0}
   range: 100
-  damage: 50
+  damage: 15
   zoomInFov: 20
   zoomOutFov: 40
   zoomInMouseSensitivity: 0.5
-  muzzleFlashVFX: {fileID: 0}
-  hitSparks: {fileID: 0}
+  muzzleFlashVFX: {fileID: 5112460534511911974}
+  hitSparks: {fileID: 5934684838375932430, guid: 40f68b40c1de7e547b64898685300b96, type: 3}
+  timeBetweenShots: 0
 --- !u!114 &-2613469432243122774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,6 +730,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+--- !u!198 &5112460534511911974 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9020536396997356432, guid: 65f3453aaf025f84891f086f5248005c, type: 3}
+  m_PrefabInstance: {fileID: 4313456458269929398}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6579884228621681818 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6956944404552346412, guid: 65f3453aaf025f84891f086f5248005c, type: 3}

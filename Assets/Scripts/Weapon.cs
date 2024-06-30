@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] float zoomInMouseSensitivity = 0.5f;
     [SerializeField] ParticleSystem muzzleFlashVFX;
     [SerializeField] GameObject hitSparks;
+    [SerializeField] float timeBetweenShots = 0f;
     PlayerInput playerInput;
     FirstPersonController fpsController;
     InputAction fire;
@@ -23,6 +24,7 @@ public class Weapon : MonoBehaviour
     GameObject destroyables;
     Ammo ammo;
     bool isZoomedIn = false;
+    bool canShoot = true;
     float zoomOutMouseSensitivity;
 
     void Start()
@@ -37,23 +39,25 @@ public class Weapon : MonoBehaviour
     }
     void Update()
     {
-        if (fire.triggered)
+        if (canShoot && fire.triggered )
         {
-            Shoot();
+            StartCoroutine(Shoot());
         }
 
         ZoomInAndOut();
     }
 
-    void Shoot()
+    IEnumerator Shoot()
     {
-        if (ammo.AmmoAmount <= 0)
+        canShoot = false;
+        if (ammo.AmmoAmount > 0)
         {
-            return;
+            PlayMuzzleFlash();
+            HandleRaycast();
+            ammo.ReduceAmmo();
         }
-        ammo.ReduceAmmo();
-        PlayMuzzleFlash();
-        HandleRaycast();
+        yield return new WaitForSeconds(timeBetweenShots);
+        canShoot = true;
     }
 
     void PlayMuzzleFlash()
@@ -71,6 +75,7 @@ public class Weapon : MonoBehaviour
             EnemyHealth enemyHealth = hit.transform.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
+                Debug.Log(hit.distance);
                 enemyHealth.ReduceHealth(damage);
             }
             else
