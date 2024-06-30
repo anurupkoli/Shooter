@@ -27,6 +27,10 @@ public class Weapon : MonoBehaviour
     bool canShoot = true;
     float zoomOutMouseSensitivity;
 
+    void OnEnable() {
+        canShoot = true;
+    }
+
     void Start()
     {
         ammo = GetComponent<Ammo>();

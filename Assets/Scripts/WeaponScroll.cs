@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 
 public class WeaponScroll : MonoBehaviour
 {
-    // Start is called before the first frame update
     PlayerInput playerInput;
     InputAction scroll;
     Weapon[] weapons;
@@ -19,30 +18,39 @@ public class WeaponScroll : MonoBehaviour
         DeactivateWeapons();
     }
 
-    void Update(){
+    void Update()
+    {
         HandleWeaponChange();
-        Debug.Log(weaponIndex);
     }
 
-    void DeactivateWeapons(){
-        foreach(Weapon weapon in weapons){
-            weapon.gameObject.SetActive(false);
+    void DeactivateWeapons()
+    {
+        for(int i=1; i<weapons.Count(); i++){
+            weapons[i].gameObject.SetActive(false);
         }
     }
 
-    void HandleWeaponChange(){
+    void HandleWeaponChange()
+    {
         Vector2 scrollAction = scroll.ReadValue<Vector2>();
-        if(scrollAction.y > 0){
-            weapons[weaponIndex].gameObject.SetActive(false);
-            weaponIndex += 1;
-            weaponIndex = Mathf.Abs(weaponIndex % 3);
-            weapons[weaponIndex].gameObject.SetActive(true);
+        if (scrollAction.y > 0)
+        {
+            ChangeWeaponIndex(1);
         }
-        else if(scrollAction.y < 0){
-            weapons[weaponIndex].gameObject.SetActive(false);
-            weaponIndex -= 1;
-            weaponIndex = Mathf.Abs(weaponIndex % 3);
-            weapons[weaponIndex].gameObject.SetActive(true);
+        else if (scrollAction.y < 0)
+        {
+            ChangeWeaponIndex(-1);
         }
+    }
+
+    void ChangeWeaponIndex(int updateIndexBy)
+    {
+        weapons[weaponIndex].gameObject.SetActive(false);
+        weaponIndex += updateIndexBy;
+        weaponIndex = weaponIndex % 3;
+        if(weaponIndex == -1){
+            weaponIndex = weapons.Count()-1;
+        }
+        weapons[weaponIndex].gameObject.SetActive(true);
     }
 }

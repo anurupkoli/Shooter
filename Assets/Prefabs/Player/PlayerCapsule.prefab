@@ -41,6 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 642659089142079350}
+  - component: {fileID: 6559735264575774311}
   m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
@@ -61,11 +62,23 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1609438368827918904}
-  - {fileID: 3741977511045043949}
   - {fileID: 3918302277789601146}
+  - {fileID: 3741977511045043949}
+  - {fileID: 1609438368827918904}
   m_Father: {fileID: 3935354880673885566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6559735264575774311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4978455066902767937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5998647b9c0ee0b47812d54c23c373a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5531197942988979408
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,6 +595,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5531197942988979410}
     - target: {fileID: -994014452994738426, guid: 9c2007a5f3a51ee4ca0e05b2278e87e0, type: 3}
+      propertyPath: timeBetweenShots
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -994014452994738426, guid: 9c2007a5f3a51ee4ca0e05b2278e87e0, type: 3}
       propertyPath: cinemachineCamera
       value: 
       objectReference: {fileID: 6767538127110340042}
@@ -591,7 +608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 183678915096632866, guid: 9c2007a5f3a51ee4ca0e05b2278e87e0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 601746002258942967, guid: 9c2007a5f3a51ee4ca0e05b2278e87e0, type: 3}
       propertyPath: m_LocalScale.x
@@ -645,6 +662,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 943168611959152077, guid: 9c2007a5f3a51ee4ca0e05b2278e87e0, type: 3}
+      propertyPath: ammoAmount
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -671,6 +692,10 @@ PrefabInstance:
       propertyPath: cinemachineCamera
       value: 
       objectReference: {fileID: 6767538127110340042}
+    - target: {fileID: -593402055728704913, guid: dc3aebc89aaccea4c8a7c854631103a7, type: 3}
+      propertyPath: ammoAmount
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5418629000588264491, guid: dc3aebc89aaccea4c8a7c854631103a7, type: 3}
       propertyPath: m_Name
       value: ShotGun
@@ -737,13 +762,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 642659089142079350}
     m_Modifications:
+    - target: {fileID: -2613469432243122774, guid: 7f37c3818124ddf41b3c800d4d47a5c8, type: 3}
+      propertyPath: ammoAmount
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2803105129915856695, guid: 7f37c3818124ddf41b3c800d4d47a5c8, type: 3}
       propertyPath: m_Name
       value: Carbine
       objectReference: {fileID: 0}
     - target: {fileID: 2803105129915856695, guid: 7f37c3818124ddf41b3c800d4d47a5c8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3411828764813097293, guid: 7f37c3818124ddf41b3c800d4d47a5c8, type: 3}
       propertyPath: damage
