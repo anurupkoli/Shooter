@@ -75,7 +75,7 @@ public class Weapon : MonoBehaviour
             EnemyHealth enemyHealth = hit.transform.GetComponent<EnemyHealth>();
             if (enemyHealth != null)
             {
-                Debug.Log(hit.distance);
+                // Debug.Log(hit.distance);
                 enemyHealth.ReduceHealth(damage);
             }
             else
