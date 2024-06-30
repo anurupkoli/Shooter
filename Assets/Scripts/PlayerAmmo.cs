@@ -11,29 +11,23 @@ public class PlayerAmmo : MonoBehaviour
         public int ammoAmount;
     }
 
-    public int GetAmmoAmount(AmmoType type){
+    private AmmoSlot GetAmmoSlot(AmmoType type){
         foreach(AmmoSlot ammoSlot in ammoSlots){
-            if(ammoSlot.ammoType == type){
-                return ammoSlot.ammoAmount;
-            }
+            if(ammoSlot.ammoType == type) return ammoSlot;
         }
 
-        return -1;
+        return null;
+    }
+
+    public int GetAmmoAmount(AmmoType type){
+        return GetAmmoSlot(type).ammoAmount;
     }
 
     public void ReduceAmmo(AmmoType type){
-        foreach(AmmoSlot ammoSlot in ammoSlots){
-            if(ammoSlot.ammoType == type){
-                ammoSlot.ammoAmount--;
-            }
-        }
+        GetAmmoSlot(type).ammoAmount--;
     }
 
     public void IncreaseAmmo(AmmoType type, int amount){
-        foreach(AmmoSlot ammoSlot in ammoSlots){
-            if(ammoSlot.ammoType == type){
-                ammoSlot.ammoAmount += amount;
-            }
-        }
+        GetAmmoSlot(type).ammoAmount += amount;
     }
 }

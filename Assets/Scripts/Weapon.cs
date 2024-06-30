@@ -28,18 +28,21 @@ public class Weapon : MonoBehaviour
     float zoomOutMouseSensitivity;
 
     void OnEnable() {
+        fpsController = FindObjectOfType<FirstPersonController>();  
+        zoomOutMouseSensitivity = fpsController.RotationSpeed; 
+        playerInput = FindAnyObjectByType<PlayerInput>(); 
+        destroyables = GameObject.FindGameObjectWithTag("Destroyables");
         canShoot = true;
+        isZoomedIn = false;
+        SetFieldOfView(zoomOutFov);
+        SetSensitivity(zoomOutMouseSensitivity);
     }
 
     void Start()
     {
         ammo = GetComponent<Ammo>();
-        playerInput = FindAnyObjectByType<PlayerInput>();
         fire = playerInput.actions["fire"];
         zoom = playerInput.actions["zoom"];
-        destroyables = GameObject.FindGameObjectWithTag("Destroyables");
-        fpsController = FindObjectOfType<FirstPersonController>();
-        zoomOutMouseSensitivity = fpsController.RotationSpeed;
     }
     void Update()
     {
@@ -107,15 +110,23 @@ public class Weapon : MonoBehaviour
             if (!isZoomedIn)
             {
                 isZoomedIn = true;
-                cinemachineCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = zoomInFov;
-                fpsController.RotationSpeed = zoomInMouseSensitivity;
+                SetFieldOfView(zoomInFov);
+                SetSensitivity(zoomInMouseSensitivity);
             }
             else
             {
                 isZoomedIn = false;
-                cinemachineCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = zoomOutFov;
-                fpsController.RotationSpeed = zoomOutMouseSensitivity;
+                SetFieldOfView(zoomOutFov);
+                SetSensitivity(zoomOutMouseSensitivity);
             }
         }
+    }
+
+    void SetFieldOfView(float fovAmount){
+        cinemachineCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = fovAmount;
+    }
+
+    void SetSensitivity(float zoomSensitivity){
+        fpsController.RotationSpeed = zoomSensitivity;
     }
 }
