@@ -11,17 +11,24 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] float turnSpeed = 5f;
     NavMeshAgent navMeshAgent;
+    EnemyHealth enemyHealth;
     bool isProvoked;
     float distance;
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        enemyHealth = GetComponent<EnemyHealth>();
         isProvoked = false;
         CalculateDistance();
     }
 
     void Update()
     {
+        if(enemyHealth.IsDead){
+            navMeshAgent.enabled = false;
+            this.enabled = false;
+            return;
+        }
         CalculateDistance();
         CheckIsProvoked();
         if (isProvoked)

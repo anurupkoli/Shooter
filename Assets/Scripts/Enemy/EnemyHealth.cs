@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] float health = 100f;
     EnemyAI enemyAI;
+    bool isDead = false;
+    public bool IsDead{get{return isDead;}}
     public float Health{get{return health;}}
 
     void Start(){
@@ -15,11 +18,13 @@ public class EnemyHealth : MonoBehaviour
         health -= damage;
         enemyAI.SetIsProvoked(true);
         if(health <= 0){
-            DestroyEnemy();
+            Die();
+            isDead = true;
         }
     }
 
-    void DestroyEnemy(){
-        Destroy(gameObject);
+    void Die(){
+        if(isDead) return;
+        GetComponent<Animator>().SetTrigger("Die");
     }
 }
