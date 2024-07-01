@@ -46,7 +46,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (distance <= sensingRadius)
         {
-            isProvoked = true;
+            SetIsProvoked(true);
         }
     }
 
